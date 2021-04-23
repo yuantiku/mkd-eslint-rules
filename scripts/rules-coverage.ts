@@ -1,16 +1,7 @@
 import { pickBy, difference, intersection } from 'lodash';
 import type { TSESLint } from '@typescript-eslint/experimental-utils';
 
-const prettierRules = ([
-  'eslint-config-prettier',
-  'eslint-config-prettier/@typescript-eslint',
-  'eslint-config-prettier/babel',
-  'eslint-config-prettier/flowtype',
-  'eslint-config-prettier/react',
-  'eslint-config-prettier/standard',
-  'eslint-config-prettier/unicorn',
-  'eslint-config-prettier/vue',
-] as const).flatMap(pkg => Object.keys(require(pkg).rules));
+const prettierRules = Object.keys(require('eslint-config-prettier').rules);
 
 const typescriptRule = require('@typescript-eslint/eslint-plugin')
   .rules as Record<string, TSESLint.RuleModule<string, []>>;

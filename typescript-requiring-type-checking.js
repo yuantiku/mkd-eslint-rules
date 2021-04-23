@@ -1,6 +1,7 @@
 module.exports = {
+  extends: ['plugin:sonar/recommended'],
   parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint', 'deprecation'],
+  plugins: ['@typescript-eslint'],
   rules: {
     '@typescript-eslint/await-thenable': 'error',
     'dot-notation': 'off',
@@ -149,6 +150,10 @@ module.exports = {
      */
     '@typescript-eslint/unbound-method': 'error',
 
-    'deprecation/deprecation': 'error',
+    'sonar/function-name': 'off', // React 的函数名是大写开头
+    'sonar/deprecation': 'error',
+    'sonar/no-dead-store': 'off',
+    'sonar/no-useless-intersection': 'off', // FIXME: 存在 bug，临时关闭
+    'sonar/max-union-size': 'off',
   },
 };
